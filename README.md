@@ -1,7 +1,7 @@
 # Building Medical Insurance Cost Estimator - Project Overview
 
 * Performed Exploratory Data Analysis (EDA) to get a better understanding of the input data
-* Built a multiple linear regression model with sklearn and statsmodels
+* Built a regression model
 * Evaluated the performance of the model using R-squared and MAE (mean average error)
 * Built a Flask API to predict the insurance cost based on the inputs
 
@@ -16,13 +16,13 @@
 ### Data Overview
 
 This data set contains **1338 records** of insurance company customers and includes the following features: 
-  * **age** - Customer age 
-  * **sex** - Customer gender
+  * **Age** - Customer age 
+  * **Sex** - Customer gender
   * **BMI** - Body Mass Index of the customer
-  * **children** - Number of children that are covered by insurance 
-  * **smoker** - Smoking status (yes, no)
-  * **region** - Residential area in the US
-  * **charges** - Individual medical costs  
+  * **Children** - Number of children that are covered by insurance 
+  * **Smoker** - Smoking status (yes, no)
+  * **Region** - Residential area in the US
+  * **Charges** - Individual medical costs  
 
 ## Exploratory Data Analysis (EDA)
   
@@ -42,13 +42,12 @@ Included:
 * Customers from the southeast region have the highest charges (4,012,754$ vs 5,363,689$)
 * Southeast region also has the most smokers 
 * Insurance costs are higher for customers without children 
-* Older clients (45-54 years-old) and overweight/obese clients have higher insurance costs
+* Older people (45-54 years-old) and overweight/obese customers have higher insurance costs
 
 
 Based on the visualisations, we can see that the data is right-skewed and has outliers.
 
 Also, if we look at a scatter plot showing charges by age and smoking status, we can see 2 different data clusters for both smoking and non-smoking data. This indicates that there is a certain data pattern that is worth investigating. To figure oout the reason of this behaviour, I created a new dataframe including data only for smoking clients and then plotted this data adding such variables as gender, number of children and bmi group. Plots with gender and number of children variables didn't reveal anything - both of the data clusters has a mix of female/male clients as well as clients with different amount of children. However, a plot with bmi data shows us that there is a clear trend - data cluster with insurance costs over 30k has mainly overweight and obese people and data cluster with insurance costs below 30k includes people who are in normal and underweight bmi categories. Hence, we can say that bmi group contributed to this data pattern. 
-
 
 
 
@@ -71,20 +70,17 @@ Insurance costs will be the target ("predictable") variable and I selected age, 
 
 
 
-To double check that we should use these features for building the model, I also used SelectBest to score the features using a f-regression method. Smoker, age and bmi have the highest score. 
+To make sure that we should use these features for building the model, I also used SelectBest to score the features using a f-regression method. Smoker, age and bmi have the highest score. 
 
 
-3. Then, the data set was split into the training set and test set with a test size 10%
+3. Then, the data set was split into the training set and test set with a test size of 10%
 
 > We need to add a random_state (a pseudo-random number) in here to make the output split the same every time we're running the code 
 
 
 
 
-
 ## Model Training and Testing
-
-
 
 
 After building the model, I've tested it by comparing actual costs vs predicted costs and built the function that predicts the insurance costs based on the input age, bmi index and smoking status.
@@ -106,7 +102,7 @@ The performance of the linear regression model was evaluated using Mean Absolute
 
 ## Productionisation
 
-I built a flask API endpoint that was hosted on a local webserver. The API endpoint takes in a request with a list of values and returns an estimated insurance cost.
+I deployed a trained machine learning model by building a Flask API endpoint that was hosted on a local webserver. The API endpoint takes in a request with a list of values and returns an estimated insurance cost.
 
 
 
