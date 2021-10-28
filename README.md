@@ -100,7 +100,7 @@ The performance of the linear regression model was evaluated using Mean Absolute
 * **R-squared value** = 0.747 and is close to 1. It means that our model is well-fitted and the features that we selected at the very beginning are relevant and they are not blowing the overall model performance out of proportion. Age, smoking factor and BMI index affect the predictable value (charges) of 74.7%. 
 * MAE = 4259
 
-## Productionisation
+## Model Deployment
 
 I deployed a trained machine learning model by building a Flask API endpoint that was hosted on a local webserver. The API endpoint takes in a request with a list of values and returns an estimated insurance cost.
 
