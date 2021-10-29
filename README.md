@@ -1,7 +1,7 @@
 # Building Medical Insurance Cost Estimator - Project Overview
 
 * Performed Exploratory Data Analysis (EDA) to get a better understanding of the input data
-* Built a regression model
+* Built a regression model 
 * Evaluated the performance of the model using R-squared and MAE (mean average error)
 * Built a Flask API to predict the insurance cost based on the inputs
 
@@ -45,14 +45,14 @@ Included:
 * Older people (45-54 years-old) and overweight/obese customers have higher insurance costs
 
 
-Based on the visualisations, we can see that the data is right-skewed and has outliers.
+Based on the visualisations, we can see that the data is right-skewed and has outliers. 
 
-Also, if we look at a scatter plot showing charges by age and smoking status, we can see 2 different data clusters for both smoking and non-smoking data. This indicates that there is a certain data pattern that is worth investigating. To figure oout the reason of this behaviour, I created a new dataframe including data only for smoking clients and then plotted this data adding such variables as gender, number of children and bmi group. Plots with gender and number of children variables didn't reveal anything - both of the data clusters has a mix of female/male clients as well as clients with different amount of children. However, a plot with bmi data shows us that there is a clear trend - data cluster with insurance costs over 30k has mainly overweight and obese people and data cluster with insurance costs below 30k includes people who are in normal and underweight bmi categories. Hence, we can say that bmi group contributed to this data pattern. 
+If we look at a scatter plot showing charges by age and smoking status, we can see 2 different data clusters for both smoking and non-smoking data. This indicates that there is a certain data pattern that is worth investigating. 
 
+To figure out the reason of this behaviour, I created a new dataframe including data only for smokers and then plotted this data adding such variables as gender, number of children and bmi group. Plots with gender and number of children variables didn't reveal anything - both of the data clusters has a mix of female/male clients as well as clients with different amount of children. However, a plot with bmi data shows us that there is a clear trend - data cluster with insurance costs over 30k has mainly overweight and obese people and data cluster with insurance costs below 30k includes people who are in normal and underweight bmi categories. Hence, we can say that bmi group contributed to this data pattern. 
 
 
 ## Model Building
-
 
 For identifying the best suitable model for this data I used a Lazy Predict library that builds a lot of basic models and helps understand which models work best without any parameter tuning. Based on the results, I selected a LGBMRegressor model as it has the highest accuracy (based on adjusted R-squared results).
 
