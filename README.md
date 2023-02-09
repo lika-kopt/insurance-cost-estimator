@@ -7,10 +7,10 @@
 
 ## Code and Resources Used
 
-**Python Version**: 3.8.5  
-**Packages:** csv, pandas, numpy, matplotlib, seaborn, sklearn, statsmodels.api, pickle, flask, requests, json, LazyPredict
-**Data source**: insurance.csv (US Medical Insurance Costs)
-**Flask Productionization:** https://towardsdatascience.com/productionize-a-machine-learning-model-with-flask-and-heroku-8201260503d2
+* Python Version : 3.8.5  
+* Packages: csv, pandas, numpy, matplotlib, seaborn, sklearn, statsmodels.api, pickle, flask, requests, json, LazyPredict
+* Data source: insurance.csv (US Medical Insurance Costs)
+* Flask Productionization: https://towardsdatascience.com/productionize-a-machine-learning-model-with-flask-and-heroku-8201260503d2
 
 
 ### Data Overview
